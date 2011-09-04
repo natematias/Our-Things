@@ -4,7 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
+washer_old:
   shared_thing: washer
-two:
+  message: "New load"
+  created_at: 2.hours.ago
+washer_latest:
+  shared_thing: washer
+  message: "Items displaced"
+  created_at: 1.hour.ago
+dryer_only:
  shared_thing: dryer_one
+ message: "Load removed"
