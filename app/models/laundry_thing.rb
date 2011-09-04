@@ -1,0 +1,2 @@
+class LaundryThing < SharedThing
+end
