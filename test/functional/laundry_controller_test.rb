@@ -4,7 +4,7 @@ class LaundryControllerTest < ActionController::TestCase
   # Replace this with your real tests.
 
   test "list laundry devices" do
-    get :list
+    get :index
     assert :success
   end
 

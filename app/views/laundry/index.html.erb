@@ -1,0 +1,12 @@
+<h1> Laundry Machines </h1>
+<ul>
+<% @laundry_things.each do |laundry_thing| %>
+  <li> 
+    <% link_to laundry_path(laundry_thing) do %><span class="thing_name"><%=laundry_thing.name %></span><%end%>:
+  <% if !laundry_thing.last_action.nil? -%>
+    <span class="audited_action_message"><%= laundry_thing.last_action.message%></span>,
+    <span class="audited_action_time"><%= laundry_thing.last_action.created_at.to_s(:short)%></span>
+  </li>
+  <%end -%>
+<% end %>
+</ul>

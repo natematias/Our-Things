@@ -1,0 +1,26 @@
+<h1 class="shared_thing_name"><%=@laundry_thing.name%></h1>
+<div class="flash"><%=flash[:alert]%>
+<div class="last_audited_action">
+  Last action: 
+  <% if !@laundry_thing.last_action.nil? -%>
+   <span class="audited_action_message"><%= @laundry_thing.last_action.message%></span>,
+    <span class="audited_action_time"><%= @laundry_thing.last_action.created_at.to_s(:short)%></span>
+  <% end -%>
+</div>
+
+<% form_tag(signal_path(@laundry_thing), :method=>"post") do %>
+  <input type="hidden" name="audited_action" value="start"/>
+  <%= submit_tag("Start a load")%>
+<% end %>
+
+<% form_tag(signal_path(@laundry_thing), :method=>"post") do %>
+  <input type="hidden" name="audited_action" value="displace"/>
+  <%= submit_tag("Displace a load")%>
+<% end %>
+
+<% form_tag(signal_path(@laundry_thing), :method=>"post") do %>
+  <input type="hidden" name="audited_action" value="remove"/>
+  <%= submit_tag("Finish a load")%>
+<% end %>
+
+<a href="/laundry/" class="navigation">Back to Laundry</a>

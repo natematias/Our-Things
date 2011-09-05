@@ -1,8 +1,9 @@
 class LaundryController < ApplicationController
   before_filter :load_laundry_thing, :only => [:show, :signal]
   before_filter :require_post, :only => [:signal]
+  layout 'our_things'
   
-  def list
+  def index
     @laundry_things = LaundryThing.all
   end
 
@@ -10,12 +11,13 @@ class LaundryController < ApplicationController
   end
 
   def signal
-    debugger if @laundry_thing.nil?
     @action = @laundry_thing.record_action params[:audited_action]
     if @action.nil?
       flash[:alert] = "Action Not Found"
-      render_404
+    else
+      flash[:alert] = "Laundry Status Updated"
     end
+    redirect_to laundry_path(@laundry_thing)
   end
 
   protected
@@ -34,7 +36,4 @@ class LaundryController < ApplicationController
       render_404 :method_not_allowed
     end
   end
-
-
-
 end
