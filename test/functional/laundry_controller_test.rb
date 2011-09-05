@@ -17,28 +17,33 @@ class LaundryControllerTest < ActionController::TestCase
   end
 
   test "carry out laundry device actions" do 
+    get :signal
+    assert :failure
+
+    washer = shared_things(:washer)
+
     assert_difference 'AuditedAction.count', 1 do
-      post :signal, {:id=>1, :action=>"start"}
+      post :signal, {:id=>washer.id, :audited_action=>"start"}
       assert :success
     end
 
     assert_difference 'AuditedAction.count', 1 do
-      post :signal, {:id=>1, :action=>"remove"}
+      post :signal, {:id=>washer.id, :audited_action=>"remove"}
       assert :success
     end
 
     assert_difference 'AuditedAction.count', 1 do
-      post :signal, {:id=>1, :action=>"displace"}
+      post :signal, {:id=>washer.id, :audited_action=>"displace"}
       assert :success
     end
 
     assert_difference 'AuditedAction.count', 0 do
-      post :signal, {:id=>10, :action=>"start"}
+      post :signal, {:id=>10, :audited_action=>"start"}
       assert :failure
     end
 
     assert_difference 'AuditedAction.count', 0 do
-      post :signal, {:id=>1, :action=>"Je ne se quois"}
+      post :signal, {:id=>1, :audited_action=>"Je ne se quois"}
       assert :failure
     end
   end
