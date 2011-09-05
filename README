@@ -6,3 +6,6 @@ QRCodes can be set up to point a mobile device directly to the status page for a
 Our Things uses a mobile-friendly intrerface and should work on legacy equipment. It was designed to be compatible with low-cost, repurposed equipment.
 
 Our Things is anonymous, but since Our Things audits a community's usage history, it can help a group understand their overall usage behaviour. Further versions will include ical feeds to help communities visualise those patterns.
+
+== Technical requirements ==
+Our Things is implemented in Rails 2.3.8 because that's what I happened to have on my machine at the time. A Rails 3 conversion would be nice.
