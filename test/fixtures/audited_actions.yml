@@ -6,12 +6,12 @@
 #
 washer_old:
   shared_thing: washer
-  message: "New load"
+  message: "start"
   created_at: <%= 2.hours.ago %>
 washer_latest:
   shared_thing: washer
-  message: "Items displaced"
+  message: "displace"
   created_at: <%= 1.hour.ago %>
 dryer_only:
  shared_thing: dryer_one
- message: "Load removed"
+ message: "remove"

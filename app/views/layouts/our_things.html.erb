@@ -1,12 +1,11 @@
 <html>
   <head>
-    <title>Our Things</title>
-    <style type="text/css">
-    </style>
+    <title>Our Things / <%=yield :title%></title>
+    <%=stylesheet_link_tag :all%>
   </head>
   <body>
-    <div align="center">
-      <img src="/images/OurThings_200x125.gif" width="200" height="125" alt="Our Things"/>
+    <div align="left">
+      <a href="/laundry"><img src="/images/OurThings_200x125.gif" width="200" height="125" alt="Our Things"/></a>
     </div>
     <%= yield %>
   </body>

@@ -6,14 +6,14 @@ class SharedThing < ActiveRecord::Base
   end
 
   def record_action action
-    if action.nil? or !possible_actions.has_key? action
+    if action.nil? or !self.class.possible_actions.has_key? action
       return nil
     end
-    self.audited_actions.create!(:message => possible_actions[action])
+    self.audited_actions.create!(:message => action)
   end
 
   protected
-  def possible_actions
+  def self.possible_actions
     {}
   end
 
