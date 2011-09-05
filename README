@@ -1,2 +1,8 @@
 == Our Things
-A web-based platform for notifying a group about the status of a shared resource.
+Our Things is a web based platform which groups of people can use to coordinate the resources they share: a kitchen, a bicycle, a car, a well, or in this case, laundry.
+
+QRCodes can be set up to point a mobile device directly to the status page for a given shared resource. The next version of Our Things will post status updates to twitter. 
+
+Our Things uses a mobile-friendly intrerface and should work on legacy equipment. It was designed to be compatible with low-cost, repurposed equipment.
+
+Our Things is anonymous, but since Our Things audits a community's usage history, it can help a group understand their overall usage behaviour. Further versions will include ical feeds to help communities visualise those patterns.
