@@ -10,6 +10,8 @@ class SharedThing < ActiveRecord::Base
       return nil
     end
     self.audited_actions.create!(:message => action)
+    client = Twitter::Client.new
+    client.update("#{self.name}: #{self.class.possible_actions[action]}")
   end
 
   protected

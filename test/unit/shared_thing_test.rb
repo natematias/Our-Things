@@ -11,6 +11,8 @@ class SharedThingTest < ActiveSupport::TestCase
     washer = shared_things(:washer) 
     assert_difference 'AuditedAction.count', 1 do
       assert_difference 'washer.audited_actions.count', 1 do
+        Twitter::Client.any_instance.stubs(:update).returns(true)
+        Twitter::Client.any_instance.expects(:update).with("Washing Machine: New Load").returns(true)
         washer.record_action "remove"
         washer.reload
         assert_equal "remove", washer.last_action.message

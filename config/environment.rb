@@ -21,6 +21,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "hpricot", :version=>"0.8.4"
   config.gem "twitter", :version=>"1.7.1"
+  config.gem "mocha", :version=>"0.9.12"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

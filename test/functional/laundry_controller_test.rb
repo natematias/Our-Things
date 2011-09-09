@@ -23,16 +23,22 @@ class LaundryControllerTest < ActionController::TestCase
     washer = shared_things(:washer)
 
     assert_difference 'AuditedAction.count', 1 do
+      Twitter::Client.any_instance.stubs(:update).returns(true)
+      Twitter::Client.any_instance.expects(:update).with("Washing Machine: New Load").returns(true)
       post :signal, {:id=>washer.id, :audited_action=>"start"}
       assert :success
     end
 
     assert_difference 'AuditedAction.count', 1 do
+      Twitter::Client.any_instance.stubs(:update).returns(true)
+      Twitter::Client.any_instance.expects(:update).with("Washing Machine: Load removed").returns(true)
       post :signal, {:id=>washer.id, :audited_action=>"remove"}
       assert :success
     end
 
     assert_difference 'AuditedAction.count', 1 do
+      Twitter::Client.any_instance.stubs(:update).returns(true)
+      Twitter::Client.any_instance.expects(:update).with("Washing Machine: New Load").returns(true)
       post :signal, {:id=>washer.id, :audited_action=>"displace"}
       assert :success
     end
