@@ -1,5 +1,5 @@
 class LaundryController < ApplicationController
-  before_filter :load_laundry_thing, :only => [:show, :signal]
+  before_filter :load_laundry_thing, :only => [:show, :signal, :calendar]
   before_filter :require_post, :only => [:signal]
   layout 'our_things'
   
@@ -8,6 +8,15 @@ class LaundryController < ApplicationController
   end
 
   def show 
+  end
+
+  def calendar
+    @audited_actions = @laundry_thing.audited_actions
+    respond_to do |format|
+      format.html { render :layout => nil}
+      format.ics {render :layout => nil }
+      format.rss {render :layout => nil}
+    end
   end
 
   def signal

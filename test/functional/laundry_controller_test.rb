@@ -9,11 +9,22 @@ class LaundryControllerTest < ActionController::TestCase
   end
 
   test "show laundry device" do
-    get :show, :id=>1
+    washer = shared_things(:washer)
+    get :show, :id=>washer.id
     assert :success
     #ensure that the returned information is sufficient
     get :show, :id=>10
     assert :failure
+  end
+
+  test "get laundry device calendar" do
+    washer = shared_things(:washer)
+
+    get :calendar, :id=>washer.id
+    assert_equal 2, assigns["audited_actions"].size
+
+    get :calendar, :id=>shared_things(:dryer_one).id
+    assert_equal 1, assigns["audited_actions"].size
   end
 
   test "carry out laundry device actions" do 

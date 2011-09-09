@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem "hpricot", :version=>"0.8.4"
   config.gem "twitter", :version=>"1.7.1"
   config.gem "mocha", :version=>"0.9.12"
+  config.gem "ri_cal", :version=>"0.8.8"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
