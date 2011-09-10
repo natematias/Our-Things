@@ -2,10 +2,12 @@
   <head>
     <title>Our Things / <%=yield :title%></title>
     <%=stylesheet_link_tag :all%>
+    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/stylesheets/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
   </head>
   <body>
     <div align="left">
-      <a href="/laundry"><img src="/images/OurThings_200x125.gif" width="200" height="125" alt="Our Things"/></a>
+      <a href="/laundry"><img src="/images/OurThings_128x80.gif" width="128" height="80" alt="Our Things"/></a>
     </div>
     <%= yield %>
   </body>

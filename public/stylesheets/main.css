@@ -45,12 +45,14 @@ form{
 }
 form input{
   width:180px;
-  font-size:14px;
+  height:35px;
+  font-size:12px;
   background:#eee;
   padding:12px;
+  font-weight:bold;
 }
 form input.start{
-  background:#5f9dfe;
+  background:#3f7dde;
   color:white;
 }
 form input.displace{
@@ -89,7 +91,7 @@ a.navigation:hover{
 
 /* Styles for the Laundry Index*/
 ul a.navigation{
-  width:100px;
+  width:50px;
   margin:0px;
 }
 ul{
@@ -105,6 +107,9 @@ ul span.audited_action_time, ul span.audited_action_message{
   border-left:0px;
   padding-left:5px;
 }
+ul span.audited_action_message{
+  font-size:18px;
+}
 ul li{
   padding:2px;
   margin-bottom:13px;
@@ -117,4 +122,8 @@ ul .displace{
 }
 ul .remove{
   color:#5f9d5e;
+}
+
+ul .laundry_status{
+  display:inline-block;
 }
