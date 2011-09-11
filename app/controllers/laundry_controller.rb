@@ -1,7 +1,7 @@
 class LaundryController < ApplicationController
   before_filter :load_laundry_thing, :only => [:show, :signal, :calendar]
   before_filter :require_post, :only => [:signal]
-  layout 'our_things'
+  layout 'our_things', :except =>[:calendar]
   
   def index
     @laundry_things = LaundryThing.all
@@ -12,10 +12,15 @@ class LaundryController < ApplicationController
 
   def calendar
     @audited_actions = @laundry_thing.audited_actions
-    respond_to do |format|
-      format.html { render :layout => nil}
-      format.ics {render :layout => nil }
-      format.rss {render :layout => nil}
+    @calendar = RiCal.Calendar do |cal|
+      @audited_actions.each do |action|
+        cal.event do |event|
+          event.description = LaundryThing.possible_actions[action.message]
+          event.dtstart     = action.created_at
+          event.dtend       = (action.created_at + 5.minutes).to_datetime
+          event.location    = @laundry_thing.name
+        end
+      end
     end
   end
 
