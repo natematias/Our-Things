@@ -1,11 +1,12 @@
 == Our Things
-Our Things is a web based platform which groups of people can use to coordinate the resources they share: a kitchen, a bicycle, a car, a well, or in this case, laundry.
 
-QRCodes can be set up to point a mobile device directly to the status page for a given shared resource. The next version of Our Things will post status updates to twitter. 
+Sharing resources among a group can broaden individual access and foster a sense of community. However, poor planning and coordination can result in inefficient, unfair use and strained relationships. We're interested in exploring inexpensive ways for a community to share any resource, and to manage those resources together. 
+
+Our Things is a web based platform which groups of people can use to coordinate the resources they share: a kitchen, a bicycle, a car, a well, or laundry. Community members can participate with their mobile phone, on the web, or with an inexpensive touchscreen device on-site. Our Things broadcasts realtime usage notifications the web and Twitter. Its analytics component permits the community to track its usage and make collective decisions about managing their shared resources.
 
 Our Things uses a mobile-friendly intrerface and should work on legacy equipment. It was designed to be compatible with low-cost, repurposed equipment.
 
-Our Things is anonymous, but since Our Things audits a community's usage history, it can help a group understand their overall usage behaviour. Further versions will include ical feeds to help communities visualise those patterns.
+Our Things is anonymous. Since it audits an entire community's usage history, it can help a group understand their overall usage behaviour.
 
 == Technical requirements ==
 Our Things is implemented in Rails 2.3.8 because that's what I happened to have on my machine at the time. A Rails 3 conversion would be nice.
